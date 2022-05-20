@@ -67,6 +67,7 @@ export const handle = async (event) => {
    const content = await compile(data)
 
    const browser = await chromium.puppeteer.launch({
+       ignoreDefaultArgs: ['--disable-extensions'],
        headless: true,
        args: chromium.args,
        defaultViewport: chromium.defaultViewReport,

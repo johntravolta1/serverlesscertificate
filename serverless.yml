@@ -20,7 +20,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs14.x
   region: sa-east-1
   iamRoleStatements:
     - Effect: Allow
@@ -58,7 +58,8 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:Query
-        Resource: "arn:aws:dynamodb:${self.provider.region}:*:table/users_certificates"
+        Resource: 
+          - "arn:aws:dynamodb:${self.provider.region}:*:table/users_certificates"
 
 resources:
   Resources:
